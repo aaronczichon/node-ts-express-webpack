@@ -1,0 +1,29 @@
+{
+    "compilerOptions": {
+      "lib": ["es5", "es6", "esnext.asynciterable", "dom"],
+      "outDir": "./build",
+      "target": "es5",
+      "module": "commonjs",
+      "moduleResolution": "node",
+      "sourceMap": true,
+      "allowJs": true,
+      "experimentalDecorators": true,
+      "emitDecoratorMetadata": true,
+      "strictNullChecks": true,
+      "noImplicitAny": true,
+      "noUnusedLocals": true,
+      "noUnusedParameters": true,
+      "resolveJsonModule": true
+    },
+    "types": [
+      "node"
+    ],
+    "exclude": [
+      "node_modules",
+      "**/*.spec.ts",
+      "build",
+      "dist",
+      "docs"
+    ]
+  }
+  

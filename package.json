@@ -1,0 +1,36 @@
+{
+  "name": "notification-server",
+  "version": "1.0.0",
+  "description": "Edelog Framework Notification Server",
+  "main": "server.ts",
+  "scripts": {
+    "start": "npm-run-all --parallel watch:server watch:build",
+    "watch:server": "nodemon \"./build/bundle.js\" --watch \"./build\" ",
+    "watch:build": "webpack --watch",
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "https://github.com/conclurer/edelog-next",
+  "author": "Aaron Czichon, Conclurer GmbH",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "@conclurer/coding-conventions": "^1.0.2",
+    "@types/express": "^4.16.1",
+    "@types/node": "^11.13.2",
+    "@types/throng": "^4.0.2",
+    "nodemon": "^1.18.11",
+    "npm-run-all": "^4.1.5",
+    "ts-loader": "^5.3.3",
+    "typescript": "^3.4.3",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "express-https-redirect": "^1.0.0",
+    "reflect-metadata": "^0.1.13",
+    "throng": "^4.0.0"
+  }
+}
