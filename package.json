@@ -8,7 +8,9 @@
     "watch:server": "nodemon \"./build/bundle.js\" --watch \"./build\" ",
     "watch:build": "webpack --watch",
     "build": "webpack",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "format": "format-coding-conventions",
+    "test": "yarn jest",
+    "test:watch": "yarn jest --watch"
   },
   "repository": "https://github.com/conclurer/edelog-next",
   "author": "Aaron Czichon, Conclurer GmbH",
@@ -17,10 +19,14 @@
   "devDependencies": {
     "@conclurer/coding-conventions": "^1.0.2",
     "@types/express": "^4.16.1",
+    "@types/jest": "^24.0.15",
     "@types/node": "^11.13.2",
     "@types/throng": "^4.0.2",
+    "jest": "^24.8.0",
     "nodemon": "^1.18.11",
     "npm-run-all": "^4.1.5",
+    "prettier": "^1.18.2",
+    "ts-jest": "^24.0.2",
     "ts-loader": "^5.3.3",
     "typescript": "^3.4.3",
     "webpack": "^4.29.6",

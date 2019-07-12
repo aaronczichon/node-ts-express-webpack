@@ -1,10 +1,10 @@
-import * as http from 'http';
-import 'reflect-metadata';
-import * as throng from 'throng';
-import * as express from 'express';
+import * as http from "http";
+import "reflect-metadata";
+import * as throng from "throng";
+import * as express from "express";
 
 const httpPort = normalizePort(process.env.PORT || 3000);
-const WORKERS = process.env.WEB_CONCURRENCY || 1 as throng.WorkerCount;
+const WORKERS = process.env.WEB_CONCURRENCY || (1 as throng.WorkerCount);
 
 throng({
   workers: WORKERS,
@@ -17,26 +17,26 @@ function startServer(workerId: number) {
   const app: express.Application = express();
 
   // Setting port
-  app.set('port', httpPort);
+  app.set("port", httpPort);
 
   // Register dummy endpoint
-  app.get('/api/v1/test', (_req, res) => {
-    res.send({ message: 'Hi' });
+  app.get("/api/v1/test", (_req, res) => {
+    res.send({ message: "Hi" });
   });
 
   // register http server and configure
   const httpServer = http.createServer(app);
   httpServer.listen(httpPort);
-  httpServer.on('listening', onListening);
-  httpServer.on('error', onError);
+  httpServer.on("listening", onListening);
+  httpServer.on("error", onError);
 
-
-  console.info('Started cluster worker with id:', workerId);
+  console.info("Started cluster worker with id:", workerId);
 
   function onListening() {
     const addr = httpServer.address();
-    const bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr!.port;
-    console.log('Listening on ' + bind);
+    const bind =
+      typeof addr === "string" ? "pipe " + addr : "port " + addr!.port;
+    console.log("Listening on " + bind);
   }
 }
 
@@ -63,21 +63,21 @@ function normalizePort(val: any) {
  * Event listener for HTTP server "error" event.
  */
 function onError(error: any) {
-  if (error.syscall !== 'listen') {
+  if (error.syscall !== "listen") {
     throw error;
   }
 
   const bind =
-    typeof httpPort === 'string' ? 'Pipe ' + httpPort : 'Port ' + httpPort;
+    typeof httpPort === "string" ? "Pipe " + httpPort : "Port " + httpPort;
 
   // handle specific listen errors with friendly messages
   switch (error.code) {
-    case 'EACCES':
-      console.error(bind + ' requires elevated privileges');
+    case "EACCES":
+      console.error(bind + " requires elevated privileges");
       process.exit(1);
       break;
-    case 'EADDRINUSE':
-      console.error(bind + ' is already in use');
+    case "EADDRINUSE":
+      console.error(bind + " is already in use");
       process.exit(1);
       break;
     default:
@@ -89,6 +89,6 @@ function onError(error: any) {
  * Event listener for HTTP server "listening" event.
  */
 
-process.on('exit', (e) => {
-  console.log('Uncaught Error:', e);
-})
+process.on("exit", e => {
+  console.log("Uncaught Error:", e);
+});
